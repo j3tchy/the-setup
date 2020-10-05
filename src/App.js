@@ -27,7 +27,7 @@ const App = () => {
     <Wrapper>
       {loading && <Spinner intent={Intent.PRIMARY} />}
       {photos &&
-        photos.map((photo, index) => (
+        photos.map((photo) => (
           <StyledCards key={photo.id} elevation={Elevation.ONE}>
             <p>{photo.title}</p>
           </StyledCards>
