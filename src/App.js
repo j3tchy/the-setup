@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import styled from "styled-components";
+import { Spinner, Intent, Elevation } from "@blueprintjs/core";
 
-function App() {
+import StyledCards from "./components/styled/Card";
+
+const Wrapper = styled.div`
+  margin: 20px auto;
+  width: 350px;
+`;
+
+const App = () => {
+  const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/photos?albumId=1")
+      .then((res) => res.json())
+      .then((data) => {
+        setPhotos(data);
+        setLoading(false);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      {loading && <Spinner intent={Intent.PRIMARY} />}
+      {photos &&
+        photos.map((photo, index) => (
+          <StyledCards key={photo.id} elevation={Elevation.ONE}>
+            <p>{photo.title}</p>
+          </StyledCards>
+        ))}
+    </Wrapper>
   );
-}
+};
 
 export default App;
