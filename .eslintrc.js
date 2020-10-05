@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["plugin:react/recommended", "airbnb", "prettier"],
+  extends: ["plugin:react/recommended", "airbnb", "prettier", "prettier/react"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -16,7 +16,6 @@ module.exports = {
     semi: ["error", "always"],
     quotes: ["error", "double"],
     "import/no-named-as-default": 0,
-    "operator-linebreak": ["error", "after"],
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
   },
 };
