@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import styled from 'styled-components';
-import { Spinner, Intent, Elevation } from '@blueprintjs/core';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import styled from "styled-components";
+import { Spinner, Intent, Elevation } from "@blueprintjs/core";
 
-import StyledCards from './components/styled/Card';
+import StyledCards from "./components/styled/Card";
 
 const Wrapper = styled.div`
   margin: 20px auto;
@@ -15,9 +15,9 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/photos?albumId=1')
-      .then((res) => res.json())
-      .then((data) => {
+    fetch("https://jsonplaceholder.typicode.com/photos?albumId=1")
+      .then(res => res.json())
+      .then(data => {
         setPhotos(data);
         setLoading(false);
       });
@@ -27,7 +27,7 @@ const App = () => {
     <Wrapper>
       {loading && <Spinner intent={Intent.PRIMARY} />}
       {photos &&
-        photos.map((photo) => (
+        photos.map(photo => (
           <StyledCards key={photo.id} elevation={Elevation.ONE}>
             <p>{photo.title}</p>
           </StyledCards>
