@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@axe-core/cli": "^4.0.0",
     "@blueprintjs/core": "^3.32.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -19,7 +20,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint ./src/*.js",
     "pretty-quick": "pretty-quick",
-    "pp:lint": "npm run pretty-quick -- --staged && npm run lint"
+    "pp:lint": "npm run pretty-quick -- --staged && npm run lint",
+    "a11y": "axe index.html"
   },
   "eslintConfig": {
     "extends": "react-app"

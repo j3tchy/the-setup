@@ -30,6 +30,7 @@ const App = () => {
         photos.map(photo => (
           <StyledCards key={photo.id} elevation={Elevation.ONE}>
             <p>{photo.title}</p>
+            <img src="./logo.svg" alt="Test" />
           </StyledCards>
         ))}
     </Wrapper>
